@@ -27,13 +27,14 @@ abstract class BaseMenu<T>(
         }
     }
 
-    private fun showItems() = if (items.isEmpty()) {
-    } else {
-        items.forEachIndexed { index, item ->
-            when (item) {
-                is Pair<*, *> -> println("${index + 1}. ${item.first}")
-                is String -> println("${index + 1}. $item")
-                else -> println("${index + 1}. Неизвестный элемент")
+    private fun showItems() {
+        if (items.isNotEmpty()) {
+            items.forEachIndexed { index, item ->
+                when (item) {
+                    is Pair<*, *> -> println("${index + 1}. ${item.first}")
+                    is String -> println("${index + 1}. $item")
+                    else -> println("${index + 1}. Неизвестный элемент")
+                }
             }
         }
     }
